@@ -1,0 +1,14 @@
+/Users/visshal/Revature/polls/polls.App/bin/Debug/net7.0/polls.App
+/Users/visshal/Revature/polls/polls.App/bin/Debug/net7.0/polls.App.deps.json
+/Users/visshal/Revature/polls/polls.App/bin/Debug/net7.0/polls.App.runtimeconfig.json
+/Users/visshal/Revature/polls/polls.App/bin/Debug/net7.0/polls.App.dll
+/Users/visshal/Revature/polls/polls.App/bin/Debug/net7.0/polls.App.pdb
+/Users/visshal/Revature/polls/polls.App/obj/Debug/net7.0/polls.App.GeneratedMSBuildEditorConfig.editorconfig
+/Users/visshal/Revature/polls/polls.App/obj/Debug/net7.0/polls.App.AssemblyInfoInputs.cache
+/Users/visshal/Revature/polls/polls.App/obj/Debug/net7.0/polls.App.AssemblyInfo.cs
+/Users/visshal/Revature/polls/polls.App/obj/Debug/net7.0/polls.App.csproj.CoreCompileInputs.cache
+/Users/visshal/Revature/polls/polls.App/obj/Debug/net7.0/polls.App.dll
+/Users/visshal/Revature/polls/polls.App/obj/Debug/net7.0/refint/polls.App.dll
+/Users/visshal/Revature/polls/polls.App/obj/Debug/net7.0/polls.App.pdb
+/Users/visshal/Revature/polls/polls.App/obj/Debug/net7.0/polls.App.genruntimeconfig.cache
+/Users/visshal/Revature/polls/polls.App/obj/Debug/net7.0/ref/polls.App.dll
