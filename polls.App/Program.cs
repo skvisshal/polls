@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Xml.Serialization;
+using System.Collections.Generic;
 using polls.Logic;
 
 namespace polls.App
@@ -40,9 +41,12 @@ namespace polls.App
                 int birthYear = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Country: ");
                 string country = Console.ReadLine();
-                User u1 = new PollTaker(username, password, name, email, birthYear, country);
+                PollTaker u1 = new PollTaker(username, password, name, email, birthYear, country);
                 string path = @"./Users.txt";
-                Serialize(u1,path);
+                List<PollTaker> l = new List<PollTaker>();
+                l.Add(u1);
+                l.Add(u1);
+                SerializeList(l,path);
             }
             else
             {
@@ -51,7 +55,12 @@ namespace polls.App
                 Console.WriteLine("Password: ");
                 string password = Console.ReadLine();
                 string path = @"./Users.txt";
-                Console.WriteLine(DeserializeXML(path).ToString());
+                List<PollTaker> l = DeserializeList(path);
+                foreach (PollTaker u in l)
+                {
+                    Console.WriteLine(u.ToString());
+                }
+                
             }
             
             
@@ -61,6 +70,15 @@ namespace polls.App
         {
             string[] text = { u.SerializeXML() };
             File.WriteAllLines(path, text);
+        }
+
+        public static void SerializeList(List<PollTaker> uL, string path)
+        {
+            var xmlSerializer = new XmlSerializer(typeof(List<PollTaker>));
+            using (var writer = new StreamWriter(path))
+            {
+                xmlSerializer.Serialize(writer, uL);
+            }
         }
 
         public static User DeserializeXML(string path)
@@ -87,6 +105,18 @@ namespace polls.App
                 }
             }
             return U;
+        }
+
+        public static List<PollTaker> DeserializeList(string path)
+        {
+            var xmlSerializer = new XmlSerializer(typeof(List<PollTaker>));
+            var users = new List<PollTaker>();
+            using (var reader = new StreamReader(path))
+            {
+                users = (List<PollTaker>)xmlSerializer.Deserialize(reader);
+            }
+
+            return users;
         }
     }
 }

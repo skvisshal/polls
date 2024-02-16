@@ -1,10 +1,21 @@
-<?xml version="1.0" encoding="utf-16"?>
-<PollTaker xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <username>a</username>
-  <password>a</password>
-  <name>a</name>
-  <email>a</email>
-  <birthYear>1</birthYear>
-  <country>a</country>
-  <pollCount>0</pollCount>
-</PollTaker>
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfPollTaker xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PollTaker>
+    <username>a</username>
+    <password>a</password>
+    <name>a</name>
+    <email>a</email>
+    <birthYear>1</birthYear>
+    <country>a</country>
+    <pollCount>0</pollCount>
+  </PollTaker>
+  <PollTaker>
+    <username>a</username>
+    <password>a</password>
+    <name>a</name>
+    <email>a</email>
+    <birthYear>1</birthYear>
+    <country>a</country>
+    <pollCount>0</pollCount>
+  </PollTaker>
+</ArrayOfPollTaker>
