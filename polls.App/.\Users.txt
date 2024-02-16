@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-16"?>
+<PollTaker xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <username>s</username>
+  <password>s</password>
+  <name>s</name>
+  <email>s</email>
+  <birthYear>1998</birthYear>
+  <country>usa</country>
+  <pollCount>0</pollCount>
+</PollTaker>

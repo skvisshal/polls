@@ -12,6 +12,8 @@ namespace polls.Logic
         public string? country{ get; set; }
 
         public abstract string ToString();
+
+        public abstract string SerializeXML();
     }
 }
 
