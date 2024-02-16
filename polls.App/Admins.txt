@@ -18,4 +18,13 @@
     <country>usa</country>
     <pollCount>0</pollCount>
   </PollAdmin>
+  <PollAdmin>
+    <username>test</username>
+    <password>password123</password>
+    <name>VIsshal</name>
+    <email>rt@gmail.com</email>
+    <birthYear>1998</birthYear>
+    <country>usa</country>
+    <pollCount>0</pollCount>
+  </PollAdmin>
 </ArrayOfPollAdmin>

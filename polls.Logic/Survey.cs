@@ -6,7 +6,7 @@ namespace polls.Logic
 {
     public class Survey
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
 
         public string title;
 

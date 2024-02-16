@@ -300,7 +300,18 @@ namespace polls.App
 
                 List<Survey> existingSurveys =
                     DeserializeListSurvey(@"./Surveys.txt");
-                existingSurveys.Add(new Survey(1,u,title));
+                int lastIndex = 1;
+                try
+                {
+                    lastIndex = existingSurveys.FindLast(x => x.Id > 0).Id;
+                }
+                catch
+                {
+                    lastIndex = 1;
+                }
+                Survey s = new Survey(lastIndex + 1, u, title);
+                //l.ForEach(x => s.questions.Add(new Question(1,s.Id,x)));
+                existingSurveys.Add(s);
                 SerializeListSurvey(existingSurveys,@"./Surveys.txt");
                 //Console.WriteLine();
                 
@@ -325,7 +336,9 @@ namespace polls.App
             int choice = Convert.ToInt32(Console.ReadLine());
             if (choice == 1)
             {
-                
+                List<Survey> existingSurveys =
+                    DeserializeListSurvey(@"./Surveys.txt");
+                existingSurveys.ForEach(x => Console.WriteLine(x.ToString()));
             }else if (choice == 2)
             {
                 
