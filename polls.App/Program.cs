@@ -14,23 +14,31 @@ namespace polls.App
             regOrLog();
         }
 
-        public static void regOrLog()
+        public static User regOrLog()
         {
+            List<PollTaker> existingUsers = DeserializeList(@"./Users.txt");
             Console.WriteLine("Enter 'R' to Register or 'L' to Log In");
             string input = Console.ReadLine();
             if (input == "exit")
             {
                 Console.WriteLine("Successfully Exited!");
+                return null;
             }
             else if (input != "R" && input != "L")
             {
                 Console.WriteLine("Invalid Input");
                 regOrLog();
+                return null;
             }
             else if(input == "R")
             {
                 Console.WriteLine("UserName: ");
                 string username = Console.ReadLine();
+                if (existingUsers.Exists(x => x.username == username))
+                {
+                    Console.WriteLine("Username already exists");
+                    return null;
+                }
                 Console.WriteLine("Password: ");
                 string password = Console.ReadLine();
                 Console.WriteLine("Name: ");
@@ -43,10 +51,9 @@ namespace polls.App
                 string country = Console.ReadLine();
                 PollTaker u1 = new PollTaker(username, password, name, email, birthYear, country);
                 string path = @"./Users.txt";
-                List<PollTaker> l = new List<PollTaker>();
-                l.Add(u1);
-                l.Add(u1);
-                SerializeList(l,path);
+                existingUsers.Add(u1);
+                SerializeList(existingUsers,path);
+                return u1;
             }
             else
             {
@@ -54,13 +61,12 @@ namespace polls.App
                 string username = Console.ReadLine();
                 Console.WriteLine("Password: ");
                 string password = Console.ReadLine();
-                string path = @"./Users.txt";
-                List<PollTaker> l = DeserializeList(path);
-                foreach (PollTaker u in l)
+                if (!existingUsers.Exists(x => x.username == username && x.password == password))
                 {
-                    Console.WriteLine(u.ToString());
+                    Console.WriteLine("Incorrect Username and Password Combo");
+                    return null;
                 }
-                
+                return existingUsers.Find(x => x.username == username && x.password == password);
             }
             
             

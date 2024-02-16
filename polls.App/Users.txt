@@ -18,4 +18,13 @@
     <country>a</country>
     <pollCount>0</pollCount>
   </PollTaker>
+  <PollTaker>
+    <username>h</username>
+    <password>h</password>
+    <name>h</name>
+    <email>h</email>
+    <birthYear>1</birthYear>
+    <country>h</country>
+    <pollCount>0</pollCount>
+  </PollTaker>
 </ArrayOfPollTaker>
