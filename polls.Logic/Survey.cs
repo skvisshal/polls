@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace polls.Logic
 {
@@ -12,6 +14,8 @@ namespace polls.Logic
 
         public PollAdmin creator;
         
+        private XmlSerializer Serializer = new XmlSerializer(typeof(Survey));
+        
         public Survey(){}
 
         public Survey(int id, PollAdmin creator, string title)
@@ -20,6 +24,19 @@ namespace polls.Logic
             this.title = title;
             this.creator = creator;
             this.questions = new List<Question>();
+        }
+        
+        public string SerializeXML()
+        {
+            var stringWriter = new StringWriter();
+            Serializer.Serialize(stringWriter, this);
+            stringWriter.Close();
+            return stringWriter.ToString();
+        }
+        
+        public override string ToString()
+        {
+            return $"Survey\ntitle: {this.title}\n";
         }
     }
 }

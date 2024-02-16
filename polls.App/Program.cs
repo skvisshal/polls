@@ -17,7 +17,7 @@ namespace polls.App
             int input = Convert.ToInt32(Console.ReadLine());
             if (input == 1)
             {
-                User user = adminRegOrLog();
+                PollAdmin user = adminRegOrLog();
                 if (user == null) return;
                 AdminHome(user);
             } else if (input == 2)
@@ -34,7 +34,7 @@ namespace polls.App
             
         }
 
-        public static User adminRegOrLog()
+        public static PollAdmin adminRegOrLog()
         {
             List<PollAdmin> existingAdmins = DeserializeListAdmin(@"./Admins.txt");
             Console.WriteLine("Enter 'R' to Register or 'L' to Log In");
@@ -242,19 +242,100 @@ namespace polls.App
 
             return admins;
         }
-
-        public static void AdminHome(User u)
+        
+        public static List<Survey> DeserializeListSurvey(string path)
         {
+            var xmlSerializer = new XmlSerializer(typeof(List<Survey>));
+            var surveys = new List<Survey>();
+            using (var reader = new StreamReader(path))
+            {
+                surveys = (List<Survey>)xmlSerializer.Deserialize(reader);
+            }
+
+            return surveys;
+        }
+        
+        public static void SerializeListSurvey(List<Survey> uL, string path)
+        {
+            var xmlSerializer = new XmlSerializer(typeof(List<Survey>));
+            using (var writer = new StreamWriter(path))
+            {
+                xmlSerializer.Serialize(writer, uL);
+            }
+        }
+        
+        
+        
+        
+
+        public static void AdminHome(PollAdmin u)
+        {
+            Console.WriteLine("------------------------------");
             Console.WriteLine("Admin Home Page");
             Console.WriteLine("[1] Create Survey");
             Console.WriteLine("[2] View Surveys");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            if (choice == 1)
+            {
+                Console.WriteLine("Enter Survey Title");
+                string title = Console.ReadLine();
+                bool check = true;
+                int counter = 1;
+                List <String> l= new List<String>();
+                while (check)
+                {
+                    Console.WriteLine("Enter Question "+counter);
+                    l.Add(Console.ReadLine());
+                    Console.WriteLine("Enter q to end survey or c to continue");
+                    string response = Console.ReadLine();
+                    if (response.Equals("c"))
+                    {
+                        counter++;
+                        continue;
+                    } else if (response.Equals("q"))
+                    {
+                        check = false;
+                    }
+                }
+
+                List<Survey> existingSurveys =
+                    DeserializeListSurvey(@"./Surveys.txt");
+                existingSurveys.Add(new Survey(1,u,title));
+                SerializeListSurvey(existingSurveys,@"./Surveys.txt");
+                //Console.WriteLine();
+                
+            }else if (choice == 2)
+            {
+                
+            }
+            else
+            {
+                Console.WriteLine("Invalid Choice");
+                AdminHome(u);
+                return;
+            }
         }
         
         public static void UserHome(User u)
         {
+            Console.WriteLine("------------------------------");
             Console.WriteLine("User Home Page");
             Console.WriteLine("[1] List Available Surveys");
             Console.WriteLine("[2] View Answered Surveys");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            if (choice == 1)
+            {
+                
+            }else if (choice == 2)
+            {
+                
+            }
+            else
+            {
+                Console.WriteLine("Invalid Choice");
+                UserHome(u);
+                return;
+            }
         }
     }
 }

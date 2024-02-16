@@ -9,4 +9,13 @@
     <country>ad</country>
     <pollCount>0</pollCount>
   </PollAdmin>
+  <PollAdmin>
+    <username>rhawkins</username>
+    <password>password123</password>
+    <name>Richard Hawkins</name>
+    <email>rh@revature.com</email>
+    <birthYear>1995</birthYear>
+    <country>usa</country>
+    <pollCount>0</pollCount>
+  </PollAdmin>
 </ArrayOfPollAdmin>

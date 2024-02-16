@@ -9,4 +9,13 @@
     <country>u</country>
     <pollCount>0</pollCount>
   </PollTaker>
+  <PollTaker>
+    <username>skvisshal</username>
+    <password>password123</password>
+    <name>Visshal Suresh</name>
+    <email>skvisshal@gmail.com</email>
+    <birthYear>1998</birthYear>
+    <country>usa</country>
+    <pollCount>0</pollCount>
+  </PollTaker>
 </ArrayOfPollTaker>
