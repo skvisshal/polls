@@ -29,6 +29,7 @@ namespace polls.App
             else
             {
                 Console.WriteLine("Wrong Input");
+                Main(args);
             }
             
         }
@@ -218,6 +219,13 @@ namespace polls.App
             }
 
             return admins;
+        }
+
+        public static void UserHome(User u)
+        {
+            Console.WriteLine("User Home Page");
+            Console.WriteLine("[1] Create Survey");
+            Console.WriteLine("[2] View Surveys");
         }
     }
 }

@@ -5,7 +5,6 @@ namespace polls.Logic
     public class Answer
     {
         public int? Id { get; set; }
-        private static int idSeed = 1;
 
         public Question question;
         public int body;
@@ -13,10 +12,9 @@ namespace polls.Logic
 
         public Answer() {}
 
-        public Answer(Question q, int body)
+        public Answer(int id, Question q, int body)
         {
-            this.Id = idSeed;
-            idSeed++;
+            this.Id = id;
             this.question = q;
             this.body = body;
             users = new List<PollTaker>();

@@ -11,16 +11,13 @@ namespace polls.Logic
         public List<Question> questions;
 
         public PollAdmin creator;
-
-        private static int idSeed = 1;
         
         public Survey(){}
 
-        public Survey(PollAdmin creator, string title)
+        public Survey(int id, PollAdmin creator, string title)
         {
-            this.Id = idSeed;
+            this.Id = id;
             this.title = title;
-            idSeed++;
             this.creator = creator;
             this.questions = new List<Question>();
         }
