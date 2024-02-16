@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfPollAdmin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PollAdmin>
+    <username>ad</username>
+    <password>ad</password>
+    <name>ad</name>
+    <email>ad</email>
+    <birthYear>1</birthYear>
+    <country>ad</country>
+    <pollCount>0</pollCount>
+  </PollAdmin>
+</ArrayOfPollAdmin>

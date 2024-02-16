@@ -10,11 +10,85 @@ namespace polls.App
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World");
-            regOrLog();
+            Console.WriteLine("Welcome to the Survey Station");
+            Console.WriteLine("[1] Poll Admin");
+            Console.WriteLine("[2] Poll User");
+            Console.WriteLine("Input: ");
+            int input = Convert.ToInt32(Console.ReadLine());
+            if (input == 1)
+            {
+                User user = adminRegOrLog();
+                if (user == null) return;
+                Console.WriteLine(user.ToString());
+            } else if (input == 2)
+            {
+                User user = userRegOrLog();
+                if (user == null) return;
+                Console.WriteLine(user.ToString());
+            }
+            else
+            {
+                Console.WriteLine("Wrong Input");
+            }
+            
         }
 
-        public static User regOrLog()
+        public static User adminRegOrLog()
+        {
+            List<PollAdmin> existingAdmins = DeserializeListAdmin(@"./Admins.txt");
+            Console.WriteLine("Enter 'R' to Register or 'L' to Log In");
+            string input = Console.ReadLine();
+            if (input == "exit")
+            {
+                Console.WriteLine("Successfully Exited!");
+                return null;
+            }
+            else if (input != "R" && input != "L")
+            {
+                Console.WriteLine("Invalid Input");
+                adminRegOrLog();
+                return null;
+            }
+            else if(input == "R")
+            {
+                Console.WriteLine("UserName: ");
+                string username = Console.ReadLine();
+                if (existingAdmins.Exists(x => x.username == username))
+                {
+                    Console.WriteLine("Username already exists");
+                    return null;
+                }
+                Console.WriteLine("Password: ");
+                string password = Console.ReadLine();
+                Console.WriteLine("Name: ");
+                string name = Console.ReadLine();
+                Console.WriteLine("Email: ");
+                string email = Console.ReadLine();
+                Console.WriteLine("Birth Year: ");
+                int birthYear = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Country: ");
+                string country = Console.ReadLine();
+                PollAdmin u1 = new PollAdmin(username, password, name, email, birthYear, country);
+                string path = @"./Admins.txt";
+                existingAdmins.Add(u1);
+                SerializeListAdmin(existingAdmins,path);
+                return u1;
+            }
+            else
+            {
+                Console.WriteLine("UserName: ");
+                string username = Console.ReadLine();
+                Console.WriteLine("Password: ");
+                string password = Console.ReadLine();
+                if (!existingAdmins.Exists(x => x.username == username && x.password == password))
+                {
+                    Console.WriteLine("Incorrect Username and Password Combo");
+                    return null;
+                }
+                return existingAdmins.Find(x => x.username == username && x.password == password);
+            }
+        }
+        public static User userRegOrLog()
         {
             List<PollTaker> existingUsers = DeserializeList(@"./Users.txt");
             Console.WriteLine("Enter 'R' to Register or 'L' to Log In");
@@ -27,7 +101,7 @@ namespace polls.App
             else if (input != "R" && input != "L")
             {
                 Console.WriteLine("Invalid Input");
-                regOrLog();
+                userRegOrLog();
                 return null;
             }
             else if(input == "R")
@@ -86,6 +160,15 @@ namespace polls.App
                 xmlSerializer.Serialize(writer, uL);
             }
         }
+        
+        public static void SerializeListAdmin(List<PollAdmin> uL, string path)
+        {
+            var xmlSerializer = new XmlSerializer(typeof(List<PollAdmin>));
+            using (var writer = new StreamWriter(path))
+            {
+                xmlSerializer.Serialize(writer, uL);
+            }
+        }
 
         public static User DeserializeXML(string path)
         {
@@ -123,6 +206,18 @@ namespace polls.App
             }
 
             return users;
+        }
+        
+        public static List<PollAdmin> DeserializeListAdmin(string path)
+        {
+            var xmlSerializer = new XmlSerializer(typeof(List<PollAdmin>));
+            var admins = new List<PollAdmin>();
+            using (var reader = new StreamReader(path))
+            {
+                admins = (List<PollAdmin>)xmlSerializer.Deserialize(reader);
+            }
+
+            return admins;
         }
     }
 }
