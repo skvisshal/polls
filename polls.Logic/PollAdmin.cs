@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Xml.Serialization;
+using System.Net.Mail;
 
 namespace polls.Logic
 {
@@ -13,6 +14,15 @@ namespace polls.Logic
         
         public PollAdmin(string username, string password, string name, string email, int birthYear, string country)
         {
+try
+			{
+				var emailAddress = new MailAddress(email);
+			}
+			catch
+			{
+				throw new Exception("Not Valid Email Address");
+			}
+			if(birthYear < 1900 || birthYear > 2024) throw new Exception("Invalid Birth Year");
             this.username = username;
             this.password = password;
             this.name = name;

@@ -19,12 +19,12 @@ namespace polls.App
             {
                 User user = adminRegOrLog();
                 if (user == null) return;
-                Console.WriteLine(user.ToString());
+                AdminHome(user);
             } else if (input == 2)
             {
                 User user = userRegOrLog();
                 if (user == null) return;
-                Console.WriteLine(user.ToString());
+                UserHome(user);
             }
             else
             {
@@ -69,7 +69,17 @@ namespace polls.App
                 int birthYear = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Country: ");
                 string country = Console.ReadLine();
-                PollAdmin u1 = new PollAdmin(username, password, name, email, birthYear, country);
+                PollAdmin u1;
+                try
+                {
+                    u1 = new PollAdmin(username, password, name, email, birthYear, country);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    adminRegOrLog();
+                    return null;
+                }
                 string path = @"./Admins.txt";
                 existingAdmins.Add(u1);
                 SerializeListAdmin(existingAdmins,path);
@@ -124,7 +134,19 @@ namespace polls.App
                 int birthYear = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Country: ");
                 string country = Console.ReadLine();
-                PollTaker u1 = new PollTaker(username, password, name, email, birthYear, country);
+
+                PollTaker u1;
+                try
+                {
+                    u1 = new PollTaker(username, password, name, email, birthYear, country);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    adminRegOrLog();
+                    return null;
+                }
+                
                 string path = @"./Users.txt";
                 existingUsers.Add(u1);
                 SerializeList(existingUsers,path);
@@ -221,11 +243,18 @@ namespace polls.App
             return admins;
         }
 
+        public static void AdminHome(User u)
+        {
+            Console.WriteLine("Admin Home Page");
+            Console.WriteLine("[1] Create Survey");
+            Console.WriteLine("[2] View Surveys");
+        }
+        
         public static void UserHome(User u)
         {
             Console.WriteLine("User Home Page");
-            Console.WriteLine("[1] Create Survey");
-            Console.WriteLine("[2] View Surveys");
+            Console.WriteLine("[1] List Available Surveys");
+            Console.WriteLine("[2] View Answered Surveys");
         }
     }
 }
