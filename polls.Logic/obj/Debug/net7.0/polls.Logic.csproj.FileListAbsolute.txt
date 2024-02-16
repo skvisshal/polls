@@ -1,0 +1,11 @@
+/Users/visshal/Revature/polls/polls.Logic/bin/Debug/net7.0/polls.Logic.deps.json
+/Users/visshal/Revature/polls/polls.Logic/bin/Debug/net7.0/polls.Logic.dll
+/Users/visshal/Revature/polls/polls.Logic/bin/Debug/net7.0/polls.Logic.pdb
+/Users/visshal/Revature/polls/polls.Logic/obj/Debug/net7.0/polls.Logic.GeneratedMSBuildEditorConfig.editorconfig
+/Users/visshal/Revature/polls/polls.Logic/obj/Debug/net7.0/polls.Logic.AssemblyInfoInputs.cache
+/Users/visshal/Revature/polls/polls.Logic/obj/Debug/net7.0/polls.Logic.AssemblyInfo.cs
+/Users/visshal/Revature/polls/polls.Logic/obj/Debug/net7.0/polls.Logic.csproj.CoreCompileInputs.cache
+/Users/visshal/Revature/polls/polls.Logic/obj/Debug/net7.0/polls.Logic.dll
+/Users/visshal/Revature/polls/polls.Logic/obj/Debug/net7.0/refint/polls.Logic.dll
+/Users/visshal/Revature/polls/polls.Logic/obj/Debug/net7.0/polls.Logic.pdb
+/Users/visshal/Revature/polls/polls.Logic/obj/Debug/net7.0/ref/polls.Logic.dll

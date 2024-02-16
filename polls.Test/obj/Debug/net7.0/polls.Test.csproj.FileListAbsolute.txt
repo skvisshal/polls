@@ -102,3 +102,5 @@
 /Users/visshal/Revature/polls/polls.Test/bin/Debug/net7.0/polls.App
 /Users/visshal/Revature/polls/polls.Test/bin/Debug/net7.0/polls.App.dll
 /Users/visshal/Revature/polls/polls.Test/bin/Debug/net7.0/polls.App.pdb
+/Users/visshal/Revature/polls/polls.Test/bin/Debug/net7.0/polls.Logic.dll
+/Users/visshal/Revature/polls/polls.Test/bin/Debug/net7.0/polls.Logic.pdb

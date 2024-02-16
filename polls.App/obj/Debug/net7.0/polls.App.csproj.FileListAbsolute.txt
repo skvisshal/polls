@@ -12,3 +12,7 @@
 /Users/visshal/Revature/polls/polls.App/obj/Debug/net7.0/polls.App.pdb
 /Users/visshal/Revature/polls/polls.App/obj/Debug/net7.0/polls.App.genruntimeconfig.cache
 /Users/visshal/Revature/polls/polls.App/obj/Debug/net7.0/ref/polls.App.dll
+/Users/visshal/Revature/polls/polls.App/bin/Debug/net7.0/polls.Logic.dll
+/Users/visshal/Revature/polls/polls.App/bin/Debug/net7.0/polls.Logic.pdb
+/Users/visshal/Revature/polls/polls.App/obj/Debug/net7.0/polls.App.csproj.AssemblyReference.cache
+/Users/visshal/Revature/polls/polls.App/obj/Debug/net7.0/polls.App.csproj.CopyComplete

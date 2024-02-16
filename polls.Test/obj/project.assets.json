@@ -381,11 +381,24 @@
       "polls.App/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "polls.Logic": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/polls.App.dll": {}
         },
         "runtime": {
           "bin/placeholder/polls.App.dll": {}
+        }
+      },
+      "polls.Logic/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/polls.Logic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/polls.Logic.dll": {}
         }
       }
     }
@@ -984,6 +997,11 @@
       "type": "project",
       "path": "../polls.App/polls.App.csproj",
       "msbuildProject": "../polls.App/polls.App.csproj"
+    },
+    "polls.Logic/1.0.0": {
+      "type": "project",
+      "path": "../polls.Logic/polls.Logic.csproj",
+      "msbuildProject": "../polls.Logic/polls.Logic.csproj"
     }
   },
   "projectFileDependencyGroups": {
