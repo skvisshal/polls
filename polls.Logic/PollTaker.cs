@@ -15,7 +15,7 @@ namespace polls.Logic
             this.country = country;
         }
 
-        public override string toString()
+        public override string ToString()
         {
             return
                 $"Poll Answerer\nName: {this.name}\nEmail: {this.email}\nBirth Year: {this.birthYear}\nCountry: {this.country}\n No. of Polls Taken: {this.pollCount}\n";
